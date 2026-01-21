@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azzeza Dellarosa Tiara Laksandy | Personal Branding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-bg: #fdfbfb;
+            --pastel-accent: #ebf4f5;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebf4f5 100%);
+            color: #334155;
+            min-height: 100vh;
+        }
+
+        /* HEADER MODERN STYLE */
+        .header-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            z-index: 1000;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 10px 24px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-nav:hover {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 40px -10px rgba(14, 165, 233, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 8px 16px;
+            transition: all 0.3s ease;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-link.active {
+            color: #0ea5e9;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: #0ea5e9;
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(to right, #1e293b, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-content {
+            display: none;
+            animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .photo-frame {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 1/1;
+            padding: 12px;
+            background: white;
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.06);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 36px;
+        }
+
+        .card-aesthetic {
+            background: white;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 32px;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
+        }
+
+        .card-aesthetic:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -15px rgba(14, 165, 233, 0.1);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 32px;
+            border-left: 2px solid #f1f5f9;
+            margin-bottom: 32px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -7px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background: #0ea5e9;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+        }
+
+        .floating-blob {
+            position: absolute;
+            z-index: -1;
+            filter: blur(100px);
+            opacity: 0.35;
+            border-radius: 50%;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 640px) {
+            .nav-text { display: none; }
+            .nav-icon { display: block !important; }
+            .nav-link { padding: 8px 12px; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="floating-blob bg-sky-200 w-[500px] h-[500px] top-[-10%] left-[-10%]"></div>
+    <div class="floating-blob bg-indigo-100 w-[400px] h-[400px] bottom-0 right-[-5%]"></div>
+
+    <!-- MODERN HEADER -->
+    <header class="header-container">
+        <nav class="glass-nav flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center cursor-pointer" onclick="showPage('home')">
+                <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white mr-3 shadow-lg shadow-slate-200">
+                    <span class="font-black text-sm">AZ</span>
+                </div>
+                <div class="hidden sm:block text-sm font-black tracking-tight text-slate-800">
+                    ZEZA<span class="text-sky-500">.</span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="flex items-center bg-white/40 p-1 rounded-2xl border border-white/40">
+                <button onclick="showPage('home')" id="btn-home" class="nav-link active">
+                    <span class="nav-text">Beranda</span>
+                    <span class="nav-icon hidden"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                </button>
+                <button onclick="showPage('about')" id="btn-about" class="nav-link">
+                    <span class="nav-text">Biodata</span>
+                    <span class="nav-icon hidden"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                </button>
+                <button onclick="showPage('education')" id="btn-education" class="nav-link">
+                    <span class="nav-text">Pendidikan</span>
+                    <span class="nav-icon hidden"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                </button>
+                <button onclick="showPage('instagram')" id="btn-instagram" class="nav-link">
+                    <span class="nav-text">Instagram</span>
+                    <span class="nav-icon hidden"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></span>
+                </button>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="https://instagram.com/azzezadl" target="_blank" class="bg-sky-500 hover:bg-sky-600 text-white text-[10px] font-black uppercase tracking-widest px-5 py-2.5 rounded-xl transition-all shadow-md shadow-sky-100">
+                    Connect
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-40 pb-20 px-6">
+        
+        <!-- HALAMAN BERANDA -->
+        <div id="page-home" class="page-content active max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-sky-50 text-sky-600 px-4 py-2 rounded-full text-[10px] font-black uppercase mb-8">
+                        <span class="w-1.5 h-1.5 bg-sky-500 rounded-full animate-ping"></span>
+                        Membangun Masa Depan Digital
+                    </div>
+                    <h1 class="hero-title text-6xl md:text-8xl font-bold leading-[1] mb-8">
+                        Azzeza <br> Dellarosa<span class="text-sky-500">.</span>
+                    </h1>
+                    <p class="text-slate-500 text-lg leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
+                        Siswa kreatif dari SMA Negeri 1 Magetan yang fokus menciptakan dampak positif melalui inovasi digital dan pengembangan potensi diri.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button onclick="showPage('about')" class="bg-slate-900 text-white px-10 py-5 rounded-3xl text-sm font-bold shadow-2xl hover:bg-sky-600 transition-all">
+                            Kenali Profil Saya
+                        </button>
+                        <button onclick="showPage('education')" class="bg-white text-slate-700 border border-slate-100 px-10 py-5 rounded-3xl text-sm font-bold hover:bg-slate-50 transition-all">
+                            Jejak Pendidikan
+                        </button>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="photo-frame">
+                        <img src="./profil.jpg" alt="Azzeza Profile" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALAMAN BIODATA -->
+        <div id="page-about" class="page-content max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Profil Lengkap</h2>
+                <p class="text-slate-400 max-w-xl mx-auto">Informasi mendetail mengenai identitas dan kepribadian diri saya.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-aesthetic p-10 lg:col-span-2">
+                    <h4 class="text-xs font-black text-sky-500 uppercase tracking-[0.2em] mb-8 flex items-center gap-3">
+                        <span class="w-8 h-[1px] bg-sky-200"></span> Informasi Utama
+                    </h4>
+                    <div class="grid sm:grid-cols-2 gap-10">
+                        <div class="space-y-6">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase mb-1">Nama Lengkap</span>
+                                <span class="text-lg font-bold text-slate-800">Azzeza Dellarosa Tiara Laksandy</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase mb-1">Tempat Lahir</span>
+                                <span class="text-lg font-bold text-slate-800">Magetan</span>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase mb-1">Tanggal Lahir</span>
+                                <span class="text-lg font-bold text-slate-800">14 April 2008</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase mb-1">Agama</span>
+                                <span class="text-lg font-bold text-slate-800">Islam</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-aesthetic p-10 bg-slate-900 border-none text-white relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+                        </div>
+                        <h4 class="text-xs font-black text-white/40 uppercase mb-2">Hobi Saya</h4>
+                        <p class="text-3xl font-bold mb-4">Berenang</p>
+                        <p class="text-sm text-white/50 leading-relaxed italic">
+                            "Menghargai setiap proses kecil untuk perubahan bermakna."
+                        </p>
+                    </div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-sky-500/20 blur-3xl rounded-full translate-x-10 -translate-y-10"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALAMAN PENDIDIKAN -->
+        <div id="page-education" class="page-content max-w-4xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Jejak Pendidikan</h2>
+                <div class="flex items-center justify-center gap-4 text-sky-500 font-bold">
+                    <span class="h-[1px] w-12 bg-sky-200"></span>
+                    <span class="text-[11px] uppercase tracking-widest">Growth Journey</span>
+                    <span class="h-[1px] w-12 bg-sky-200"></span>
+                </div>
+            </div>
+
+            <div class="grid gap-8">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card-aesthetic p-10 border-l-4 border-l-sky-500">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                            <div>
+                                <h3 class="font-bold text-2xl text-slate-800">SMA Negeri 1 Magetan</h3>
+                                <p class="text-sky-500 font-bold text-sm mt-1 uppercase tracking-tighter">Current Education</p>
+                            </div>
+                            <span class="text-[11px] font-black bg-slate-100 text-slate-500 px-5 py-2 rounded-full">2023 - 2026</span>
+                        </div>
+                        <p class="text-slate-500 leading-relaxed">Berfokus pada pengembangan potensi akademik dan keterampilan digital untuk masa depan yang lebih cerah.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card-aesthetic p-10 bg-white/50">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                            <div>
+                                <h3 class="font-bold text-xl text-slate-700">SMP Negeri 4 Magetan</h3>
+                                <p class="text-slate-400 font-bold text-xs mt-1 uppercase">Junior High School</p>
+                            </div>
+                            <span class="text-[11px] font-black bg-slate-100 text-slate-400 px-5 py-2 rounded-full">2020 - 2023</span>
+                        </div>
+                        <p class="text-slate-500 leading-relaxed">Masa pembentukan kedisiplinan dan eksplorasi minat bakat di lingkungan yang dinamis.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card-aesthetic p-10 bg-white/30 border-dashed">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-600">SD Negeri Magetan 2</h3>
+                                <p class="text-slate-400 font-bold text-xs mt-1 uppercase">Elementary School</p>
+                            </div>
+                            <span class="text-[11px] font-black bg-slate-100 text-slate-300 px-5 py-2 rounded-full">2014 - 2020</span>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed">Awal mula perjalanan belajar dengan fokus pada pengembangan karakter dasar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALAMAN INSTAGRAM -->
+        <div id="page-instagram" class="page-content max-w-2xl mx-auto">
+            <div class="card-aesthetic p-12 text-center relative overflow-hidden group">
+                <div class="relative z-10">
+                    <div class="w-28 h-28 bg-gradient-to-tr from-yellow-400 via-pink-500 to-sky-500 rounded-[2.5rem] mx-auto flex items-center justify-center text-white mb-10 shadow-2xl shadow-pink-200 group-hover:rotate-6 transition-transform duration-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </div>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-3 tracking-tighter">@azzezadl</h2>
+                    <p class="text-slate-500 mb-12 text-lg font-medium italic">Bagian dari perjalanan kreatif saya.</p>
+                    <a href="https://instagram.com/azzezadl" target="_blank" class="inline-flex items-center gap-3 px-12 py-5 bg-slate-900 text-white rounded-3xl font-bold hover:bg-sky-600 transition-all shadow-xl shadow-slate-200">
+                        <span>Lihat Feed Instagram</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <!-- Abstract decorations -->
+                <div class="absolute -top-20 -left-20 w-64 h-64 bg-yellow-100/50 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-sky-100/50 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="pb-16 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em]">&copy; 2026 Azzeza Dellarosa Portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Sembunyikan semua halaman dengan delay sedikit agar transisi terasa halus
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Aktifkan halaman yang dipilih
+            const targetPage = document.getElementById('page-' + pageId);
+            targetPage.classList.add('active');
+
+            // Update status navigasi
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => link.classList.remove('active'));
+            document.getElementById('btn-' + pageId).classList.add('active');
+
+            // Scroll ke atas dengan efek smooth
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
